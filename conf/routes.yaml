@@ -53,3 +53,11 @@ notify:
     upstreamServicePath: /
     upstreamServicePort: 80
     corsPolicy: allow_all
+api:
+  /:
+    corsPolicy: allow_all
+    upstreamService:
+      name: api
+      namespace: '{{ cluster.metadata.namespaces.user }}'
+    upstreamServicePath: /
+    upstreamServicePort: 80

@@ -1,4 +1,4 @@
-description: Blank template for a Hasura project
+description: A basic hasura project with a simple nodejs-express app running on it
 keywords: base, getting-started
-name: base
+name: hello-nodejs-express
 platformVersion: v0.15.3

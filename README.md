@@ -12,7 +12,7 @@ This is the right place to start if you are planning to build or want to learn t
 * [Auth API](#auth-apis)
 * [Filestore API](#filestore-apis)
 * [Custom service](#custom-service)
-* [Migrate from an existing react app](#migrate-from-an-existing-react-app)
+* [Migrate from an existing app](#migrate-from-an-existing-app)
 * [Local development](#local-development)
 * [Project Structure](#project-structure)
 * [FAQ](#faq)
@@ -151,7 +151,7 @@ This quickstart comes with one such custom service written in `nodejs` using the
 
 In case you want to use another language/framework for your custom service. Take a look at our docs to see how you can add a new custom service.
 
-## Migrate from an existing react app
+## Migrate from an existing app
 
 If you have an existing nodejs app and would like to migrate it to Hasura:
 

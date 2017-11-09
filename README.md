@@ -103,8 +103,8 @@ author_id | integer NOT NULL
 
 Alternatively, you can also view the schema for these tables on the api console by heading over to the tab named `data` as shown in the screenshots below.
 
-![alt text][https://github.com/hasura/hello-nodejs-express/blob/master/readme-assets/data-1.png]
-![alt text][https://github.com/hasura/hello-nodejs-express/blob/master/readme-assets/data-2.png]
+![alt text][data1]
+![alt text][data2]
 
 This means that you can now leverage the hasura data queries to perform CRUD operations on these tables.
 
@@ -225,3 +225,6 @@ Info about the clusters added to this project can be found in this file. Each cl
     namespace: hasura
   data: null  
 ```
+
+[data1]: https://github.com/hasura/hello-nodejs-express/blob/master/readme-assets/data-1.png
+[data2]: https://github.com/hasura/hello-nodejs-express/blob/master/readme-assets/data-2.png

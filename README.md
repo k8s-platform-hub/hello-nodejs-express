@@ -155,7 +155,7 @@ In case you want to use another language/framework for your custom service. Take
 
 If you have an existing nodejs app and would like to migrate it to Hasura:
 
-- Replace the `services/ui/api` directory with your app directory.
+- Replace the `microservices/api` directory with your app directory.
 - Ensure that the structure of the ui directory is
 
 ```

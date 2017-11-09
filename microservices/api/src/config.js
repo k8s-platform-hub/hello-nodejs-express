@@ -5,11 +5,7 @@ let projectConfig = {
 }
 
 if (process.env.ENVIRONMENT === 'dev') {
-    projectConfig = {
-        url: {
-            data: 'https://data.' + process.env.CLUSTER_NAME + '.hasura-app.io/v1/query',
-        }
-    }
+  projectConfig.url.data = 'http://127.0.0.1:6432/v1/query';
 }
 
 module.exports = {

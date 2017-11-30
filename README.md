@@ -8,7 +8,7 @@ This is the right place to start if you are planning to build or want to learn t
 
 * [Introduction](#introduction)
 * [Quickstart](#quickstart)
-* [Adding your own NodeJS code](#adding-your-nodejs-code)
+* [Adding your own NodeJS code](#adding-your-existing-nodejs-code)
 * [Data API](#data-apis)
 * [Auth API](#auth-apis)
 * [Filestore API](#filestore-apis)

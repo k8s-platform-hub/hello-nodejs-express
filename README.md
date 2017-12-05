@@ -7,7 +7,6 @@ This is the right place to start if you are planning to build or want to learn t
 ## Sections
 
 * [Introduction](#introduction)
-* [Quickstart](#quickstart)
 * [Data API](#data-apis)
 * [Auth API](#auth-apis)
 * [Filestore API](#filestore-apis)
@@ -23,75 +22,20 @@ This quickstart project comes with the following by default:
 2. Two tables `article` and `author` with some dummy data
 3. A basic nodejs-express app which runs on the `api` subdomain.
 
-## Quickstart
-
-Follow this section to get this project working. Before you begin, ensure you have the latest version of hasura cli tool installed.
-
-### Step 1: Getting the project
-
-```sh
-$ hasura quickstart hello-nodejs-express
-$ cd hello-nodejs-express
-```
-
-The above command does the following:
-1. Creates a new folder in the current working directory called `hello-nodejs-express`
-2. Creates a new trial hasura cluster for you and sets that cluster as the default cluster for this project
-3. Initializes `hello-nodejs-express` as a git repository and adds the necessary git remotes.
-
-### Step 2: Getting cluster information
-
-Every hasura project is run on a Hasura cluster. To get details about the cluster this project is running on:
-
-```sh
-$ hasura cluster status
-```
-
-This will give you your cluster status like so
-
-```sh
-INFO Status:                                      
-Cluster Name:       h34-excise98-stg
-Cluster Alias:      hasura
-Kube Context:       h34-excise98-stg
-Platform Version:   v0.15.3
-Cluster State:      Synced
-```
-
-Keep a note of your cluster name. Alternatively, you can also go to your [hasura dashboard](https://dashboard.hasura.io) and see the clusters you have.
-
-### Step 3: Deploying on a hasura cluster
-
-```sh
-$ git add .
-$ git commit -m "Initial Commit"
-$ git push hasura master
-```
-
-Once the above commands are executed successfully, head over to `https://api.cluster-name.hasura-app.io` (in this case `https://api.h34-excise98-stg.hasura-app.io`) to view your app.
-
-### Api console
-
-Every hasura cluster comes with an api console that gives your a GUI to test out the baas features of hasura. To open the api console
-
-```sh
-$ hasura api-console
-```
-
 ## Data APIs
 
 Hasura provides ready to use data apis to make powerful data queries on your tables. This means that you have ready-to-use JSON apis on any tables created. The url to be used to make these queries is always of the type: `https://data.cluster-name.hasura-app.io/v1/query` (in this case `https://data.h34-excise98-stg.hasura-app.io`)
 
 As mentioned earlier, this quickstart app comes with two pre-created tables `author` and `article`.
 
-**author**
+#### author
 
 column | type
 --- | ---
 id | integer NOT NULL *primary key*
 name | text NOT NULL
 
-**article**
+#### article
 
 column | type
 --- | ---
@@ -103,8 +47,9 @@ author_id | integer NOT NULL
 
 Alternatively, you can also view the schema for these tables on the api console by heading over to the tab named `data` as shown in the screenshots below.
 
-![alt text][data1]
-![alt text][data2]
+![Data schema 1](https://raw.githubusercontent.com/hasura/base/master/assets/data-1.png "Data schema 1")
+-------------------------------------------------------------------------------------------------------------------
+![Data schema 2](https://raw.githubusercontent.com/hasura/base/master/assets/data-2.png "Data schema 2")
 
 This means that you can now leverage the hasura data queries to perform CRUD operations on these tables.
 
@@ -146,7 +91,7 @@ You can try out these in the `API EXPLORER` tab of the `api console`. To learn m
 
 There might be cases where you might want to perform some custom business logic on your apis. For example, sending an email/sms to a user on sign up or sending a push notification to the mobile device when some event happens. For this, you would want to create your own custom service which does these for you on the endpoints that you define.
 
-This quickstart comes with one such custom service written in `nodejs` using the `express` framework. Check it out in action at `https://api.cluster-name.hasura-app.io` . Currently, it just returns a "Hello World from nodejs-express" at that endpoint.
+This quickstart comes with one such custom service written in `nodejs` using the `express` framework. Check it out in action at `https://api.cluster-name.hasura-app.io`.
 
 In case you want to use another language/framework for your custom service. Take a look at our docs to see how you can add a new custom service.
 
@@ -172,7 +117,7 @@ Now your existing app should be running on `https://api.cluster-name.hasura-app.
 
 ## Local development
 
-Everytime you push, your code will get deployed on a public URL. However, for faster iteration you should locally test your changes.Since we are directly accessing the internal data endpoint (Read more about internal and external endpoints here) in the nodejs-express app. We need to forward our requests to the port at which the data service is running.
+Everytime you push, your code will get deployed on a public URL. However, for faster iteration you should locally test your changes.Since we are directly accessing the internal data endpoint (Read more about internal and external endpoints [here](https://docs.hasura.io/0.15/manual/custom-microservices/communicating-between-microservices.html)) in the nodejs-express app. We need to forward our requests to the port at which the data service is running.
 
 ```sh
 $ hasura forward -s data -n hasura --local-port 6432 --remote-port 8080
@@ -225,6 +170,3 @@ Info about the clusters added to this project can be found in this file. Each cl
     namespace: hasura
   data: null  
 ```
-
-[data1]: https://github.com/hasura/hello-nodejs-express/blob/master/readme-assets/data-1.png
-[data2]: https://github.com/hasura/hello-nodejs-express/blob/master/readme-assets/data-2.png

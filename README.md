@@ -1,6 +1,6 @@
 # hello-nodejs-express
 
-This quickstart consists of a basic hasura project with a simple nodejs express app running on it. Once this project is deployed on to a hasura cluster, you will have the nodejs app running on your [cluster](https://docs.hasura.io/0.15/manual/getting-started/index.html#concept-2-a-hasura-cluster).
+This quickstart consists of a basic hasura project with a simple nodejs express app running on it. Once this project is deployed, you will have the nodejs app running on your [cluster](https://docs.hasura.io/0.15/manual/getting-started/index.html#concept-2-a-hasura-cluster).
 
 Follow along below to learn about how this quickstart works.
 
@@ -45,7 +45,7 @@ $ # Navigate into the Project
 $ cd hello-nodejs-express
 ```
 
-![Quickstart](https://raw.githubusercontent.com/hasura/hello-nodejs-express/master/assets/quickstart.png "Quickstart")
+![Quickstart](https://raw.githubusercontent.com/hasura/hello-nodejs-express/new/assets/quickstart.png "Quickstart")
 
 The `quickstart` command does the following:
 1. Creates a new folder in the current working directory called `hello-nodejs-express`

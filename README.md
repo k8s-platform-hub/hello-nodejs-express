@@ -43,6 +43,10 @@ $ hasura quickstart hasura/hello-nodejs-express
 
 $ # Navigate into the Project
 $ cd hello-nodejs-express
+
+$ # Navigate into the Project
+$ hasura quickstart hello-nodejs-express
+
 ```
 
 ![Quickstart](https://raw.githubusercontent.com/hasura/hello-nodejs-express/new/assets/quickstart.png "Quickstart")

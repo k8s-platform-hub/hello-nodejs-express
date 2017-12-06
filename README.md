@@ -52,6 +52,18 @@ The `quickstart` command does the following:
 2. Creates a new trial hasura cluster for you and sets that cluster as the default cluster for this project. (In this case, the cluster created is called `bogey45`)
 3. Initializes `hello-nodejs-express` as a git repository and adds the necessary git remotes.
 
+## The Hasura Cluster
+
+Everytime you perform a `hasura quickstart <quickstart-name>`, hasura creates a free cluster for you. Every cluster is given a name, in this case, the name of the cluster is `bogey45`. To view the status and other information about this cluster:
+
+```sh
+$ hasura cluster status
+```
+
+![ClusterStatus](https://raw.githubusercontent.com/hasura/hello-nodejs-express/new/assets/clusterstatus.png "ClusterStatus")
+
+The `Cluster Configuration` says that the local and cluster configurations are different, this is because we have not deployed our local project to our cluster. Let's do that next.
+
 ## Deploy app to cluster
 
 ```sh
@@ -182,7 +194,7 @@ You can use the following steps to test out your dockerfile locally before pushi
 $ # Navigate to the api directory
 $ cd microservices/api
 
-$ # Build the docker image (Note the . at the end, this searches for the dockerfile in the current directory)
+$ # Build the docker image (Note the . at the end, this searches for the Dockerfile in the current directory)
 $ docker build -t nodejs-express .
 
 $ # Run the command inside the container and publish the containers port 8080 to the localhost 8080 of your machine

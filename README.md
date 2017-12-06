@@ -38,14 +38,11 @@ $ git --version
 ## Getting started
 
 ```sh
-$ # Run the quickstart command to get the project
+$ # Get the project folder and create the cluster in one shot
 $ hasura quickstart hasura/hello-nodejs-express
 
 $ # Navigate into the Project
 $ cd hello-nodejs-express
-
-$ # Navigate into the Project
-$ hasura quickstart hello-nodejs-express
 
 ```
 

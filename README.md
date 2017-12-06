@@ -131,18 +131,20 @@ A `Dockerfile` contains the instructions for building the docker image. Therefor
 
 ```Dockerfile
 
-# Fetches a base container which has node installed on it
+# Step 1: Fetches a base container which has node installed on it
 FROM mhart/alpine-node:7.6.0
 
-# Sets the work directory to be /src
-WORKDIR /src
-
-# Adds everything from /microservices/api/src to a /src directory inside the container
+# Step 2: Adds everything from /microservices/api/src to a /src directory inside the container
 ADD src /src
 
-# Installs the node modules inside the container
+# Step 3: Sets the work directory to be /src
+WORKDIR /src
+
+# Step 4: Installs the node modules inside the container
+# Note: Since at STEP 3 we set the work directory to be /src, npm install is run inside the /src directory which has the package.json
 RUN npm install
 
+#Step 5
 # This is the instruction to run the server
 CMD ["node", "server.js"]
 ```
@@ -152,8 +154,6 @@ CMD ["node", "server.js"]
 If you already have a prebuilt nodejs app and would want to use that. You have to replace the contents inside the `microservices/api/src` directory with your app files.
 
 What matters is that the `Dockerfile` and the `k8s.yaml` file remain where they are, i.e at `microservices/api/`. Ensure that you make the necessary changes to the `Dockerfile` such that it runs your app. You can learn more about `Docker` and `Dockerfiles` from [here](https://docs.docker.com/)
-
-### Architecture
 
 ## Running the app locally
 

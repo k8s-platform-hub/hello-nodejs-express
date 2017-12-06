@@ -1,12 +1,12 @@
 # hello-nodejs-express
 
-This quickstart consists of a basic hasura project with a simple nodejs express app running on it. Once this project is deployed on to a hasura cluster, you will have the nodejs app running on your [cluster]("https://docs.hasura.io/0.15/manual/getting-started/index.html#concept-2-a-hasura-cluster").
+This quickstart consists of a basic hasura project with a simple nodejs express app running on it. Once this project is deployed on to a hasura cluster, you will have the nodejs app running on your [cluster](https://docs.hasura.io/0.15/manual/getting-started/index.html#concept-2-a-hasura-cluster).
 
 Follow along below to learn about how this quickstart works.
 
 ## Prerequisites
 
-* Ensure that you have the [hasura cli]("https://docs.hasura.io/0.15/manual/install-hasura-cli.html") tool installed on your system.
+* Ensure that you have the [hasura cli](https://docs.hasura.io/0.15/manual/install-hasura-cli.html) tool installed on your system.
 
 ```sh
 $ hasura version
@@ -19,7 +19,7 @@ $ # Login if you haven't already
 $ hasura login
 ```
 
-* You should have [Node.js]("https://nodejs.org/en/") installed on your system, to check whether you have it installed on your system, you can check this by:
+* You should have [Node.js](https://nodejs.org/en/) installed on your system, you can check this by:
 
 ```sh
 # To check the version of node installed
@@ -29,7 +29,7 @@ $ node -v
 $ npm -v
 ```
 
-* You should also have [git]("https://git-scm.com") installed.
+* You should also have [git](https://git-scm.com) installed.
 
 ```sh
 $ git --version
@@ -41,11 +41,11 @@ $ git --version
 $ # Run the quickstart command to get the project
 $ hasura quickstart hasura/hello-nodejs-express
 
-![Quickstart](https://raw.githubusercontent.com/hasura/hello-nodejs-express/master/assets/quickstart.png "Quickstart")
-
 $ # Navigate into the Project
 $ cd hello-nodejs-express
 ```
+
+![Quickstart](https://raw.githubusercontent.com/hasura/hello-nodejs-express/master/assets/quickstart.png "Quickstart")
 
 The `quickstart` command does the following:
 1. Creates a new folder in the current working directory called `hello-nodejs-express`
@@ -125,7 +125,7 @@ $ hasura microservice logs app
 
 ### Dockerfile
 
-Microservices on Hasura are deployed as Docker containers managed on a Kubernetes cluster. You can know more about this [here]("https://docs.hasura.io/0.15/manual/custom-microservices/develop-custom-services/index.html#using-a-dockerfile")
+Microservices on Hasura are deployed as Docker containers managed on a Kubernetes cluster. You can know more about this [here](https://docs.hasura.io/0.15/manual/custom-microservices/develop-custom-services/index.html#using-a-dockerfile)
 
 A `Dockerfile` contains the instructions for building the docker image. Therefore, understanding how the `Dockerfile` works will help you tweak this quickstart for your own needs.
 
@@ -151,7 +151,7 @@ CMD ["node", "server.js"]
 
 If you already have a prebuilt nodejs app and would want to use that. You have to replace the contents inside the `microservices/api/src` directory with your app files.
 
-What matters is that the `Dockerfile` and the `k8s.yaml` file remain where they are, i.e at `microservices/api/`. Ensure that you make the necessary changes to the `Dockerfile` such that it runs your app. You can learn more about `Docker` and `Dockerfiles` from [here]("https://docs.docker.com/")
+What matters is that the `Dockerfile` and the `k8s.yaml` file remain where they are, i.e at `microservices/api/`. Ensure that you make the necessary changes to the `Dockerfile` such that it runs your app. You can learn more about `Docker` and `Dockerfiles` from [here](https://docs.docker.com/)
 
 ### Architecture
 

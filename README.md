@@ -77,14 +77,7 @@ $ git push hasura master
 
 Once the above commands complete successfully, your project is deployed to your cluster.
 
-To check out your `nodejs` app
-
-```sh
-$ # api is the name of the nodejs app
-$ hasura microservice open api
-```
-
-Alternatively, you can also open up the URL directly in your browser by navigating to `https://api.<cluster-name>.hasura-app.io` (Replace `<cluster-name>` with your cluster name, this case `bogey45`)
+You can open up the app directly in your browser by navigating to `https://api.<cluster-name>.hasura-app.io` (Replace `<cluster-name>` with your cluster name, this case `bogey45`)
 
 The URL should return "Hello World".
 

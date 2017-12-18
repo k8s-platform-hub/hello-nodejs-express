@@ -129,12 +129,69 @@ $ hasura api-console
 
 ### Data APIs
 
-Every table that you create on Hasura can be queried using simple 
+Every table that you create on Hasura can be queried using simple JSON APIs. The best way to learn/explore these data apis would be to use the `Query Builder` in the `API Explorer`
 
+<GIF>
 
+Moreover, you can also use the `Code Generator` to get the code to make the API call in the language of your choosing.
 
+<GIF>
+  
+### Adding a data api to your app
+
+Now, lets add a data api to your app. To do this, we are going to add a new route `/get_articles` to the nodejs-express app which will return a list of all articles present on the table. 
+
+#### Step 1
+
+First, let's add a HTTP client library which will help us make the data API to Hasura.
+
+```sh
+$ # Make sure that you are in the directory with the package.json file(microservices/api/src/)
+$ # Install the fetch library 
+$ npm install --save fetch
+```
+
+#### Step 2
+
+Next, let's construct the query we want to make with the help of the `Query Builder` present in the `API Console`
+
+<GIF>
+  
+#### Step 3
+
+If this wasn't enough already, let's now use the `Code Generator` to get the code to make this call using `Nodejs` and `Fetch`
+
+<GIF>
+  
+#### Step 4
+
+Add this to your app inside a new route. Your `server.js` should look like this
+
+```javascript
+```
+
+#### Step 5
+
+Deploy these changes 
+
+```sh
+$ git add . && git commit -m "Added a new route to return articles"
+$ git push hasura master
+```
+
+The Hasura Data APIs are really powerful and have a lot more nifty features like permissions, relationships etc. Knowing about them will prevent you from reinventing the wheel when working on your app using Hasura. You can learn more about them [here](https://docs.hasura.io/0.15/manual/data/index.html).
 
 ## Adding authentication
+
+Apart from a database, Hasura also provides you with a seamless way to add authentication to your app. Moreover, the database and the authentication work well together to help you add permissions on your data (who gets to access what data).
+
+<Instructions to use AUTH UI Kit>
+  
+You can also play around with the `Auth APIs` on the `API Explorer` present in the `API Console`.
+
+<Gif>
+  
+Visit our docs to know more about Hasura [Authentication](https://docs.hasura.io/0.15/manual/users/index.html).
 
 ## Migrating existing app
 

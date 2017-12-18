@@ -63,6 +63,7 @@ Once the above commands complete successfully, your project is deployed to your 
 You can open the app by typing the following in your terminal
 
 ```sh
+$ # api is the name of the service
 $ hasura microservice open api
 ```
 

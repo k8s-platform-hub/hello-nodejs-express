@@ -6,34 +6,10 @@ Follow along below to learn about how this quickstart works and to know how to t
 
 ### Prerequisites
 
-* Ensure that you have the [hasura cli](https://docs.hasura.io/0.15/manual/install-hasura-cli.html) tool installed on your system.
-
-```sh
-$ hasura version
-```
-
-Once you have installed the hasura cli tool, login to your Hasura account
-
-```sh
-$ # Login if you haven't already
-$ hasura login
-```
-
-* You should have [Node.js](https://nodejs.org/en/) installed on your system, you can check this by:
-
-```sh
-# To check the version of node installed
-$ node -v
-
-# Node comes with npm. To check the version of npm installed
-$ npm -v
-```
-
-* You should also have [git](https://git-scm.com) installed.
-
-```sh
-$ git --version
-```
+* Ensure that you have the following installed:
+  * [hasura cli](https://docs.hasura.io/0.15/manual/install-hasura-cli.html)
+  * [Node.js](https://nodejs.org/en/)
+  * [git](https://git-scm.com)
 
 ## Getting the project
 
@@ -146,7 +122,7 @@ Now, lets add a data api to your app. To do this, we are going to add a new rout
 
 To do this, first head over to the `API Console` and construct the query using the `Query Builder`
 
-![Api Console](https://raw.githubusercontent.com/hasura/hello-nodejs-express/new/assets/quickstart.png "Api Console")
+![Api Console](https://raw.githubusercontent.com/hasura/hello-nodejs-express/new/assets/console-qb.png "Api Console")
 
 Translating this to our `nodejs` app:
 
@@ -224,7 +200,28 @@ Running the above command will open the UI Kit in your browser. You can learn mo
 
 ### Using the Auth UI Kit in our project
 
-This quickstart has a simple example of using the Hasura Auth UI Kit.
+This quickstart has a simple example which uses the Hasura Authentication. Navigate to `https://api.<cluster-name>.hasura-app.io/logged_in_user` (Replace  `<cluster-name>` with your cluster name).
+
+You will get redirected to the Auth UI Kit. Click on `SignUp` and create an account. Once you complete registration you will be taken back to the `/logged_in_user` endpoint which will now respond back with a JSON.
+
+The code for this is inside `server.js`
+
+```javascript
+app.get('/logged_in_user', function(req, res) {
+  if (req['X-Hasura-User-Id']) {
+    res.json({
+      message: 'Welcome, logged in user !',
+      userId: req['X-Hasura-User-Id']    
+    })
+    return;
+  }
+  res.redirect('https://auth.' + process.env.CLUSTER_NAME + '.hasura-app.io/ui');
+});
+```
+
+In the above code snippet, we have defined a new route `/logged_in_user`. When this route receives a request, it checks the request headers for a key called `X-Hasura-User-Id` this is the header that the API gateway adds.
+
+`EXPLAIN..`
 
 ## Migrating existing app
 

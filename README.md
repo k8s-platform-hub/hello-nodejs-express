@@ -148,7 +148,7 @@ To do this, first head over to the `API Console` and construct the query using t
 
 ![Api Console](https://raw.githubusercontent.com/hasura/hello-nodejs-express/new/assets/quickstart.png "Api Console")
 
-Translating this to our `nodejs` app will look like so:
+Translating this to our `nodejs` app:
 
 ```javascript
 //Add this to the top of the file
@@ -198,7 +198,8 @@ app.get('/get_articles', function(req, res) {
 
 If you notice, the request being made in your app is a little different from the one you tried out in the `API Console`. There are two major differences,
 
-1. url: "http://data.hasura/v1/query"
+1. url: `http://data.hasura/v1/query`
+
 Every microservice on Hasura has an internal URL which other microservices can hit. `http://data.hasura` is the internal endpoint for the `data` microservice. (`https://data.<cluster-name>.hasura-app.io` is the external endpoint). Since the `nodejs` app is also a microservice, once deployed, it can hit the internal endpoint of the `data` microservice.
 
 2. headers: The `Authorization` header is no longer needed as we are hitting the internal endpoint instead of the external one. This is because our `nodejs` microservice is contacting the `data` microservice directly instead of going through the API gateway.
@@ -207,11 +208,23 @@ The Hasura Data APIs are really powerful and have a lot more nifty features like
 
 ## Adding authentication
 
-Apart from a database, Hasura also provides you with a seamless way to add authentication to your app. Moreover, the database and the authentication work well together to help you add permissions on your data (who gets to access what data).
+Every app almost always requires some form of authentication. This is useful to identify a user and provide some sort of personalized experience to the user. Apart from a database, Hasura also provides you with a seamless way to add authentication to your app. Moreover, the database and the authentication work well together to help you add permissions on your data (who gets to access what data).
 
-<Instructions to use AUTH UI Kit>
+Just like the `Data APIs` are you given `Auth APIs` which you can use in your apps to authenticate your users. You can test them out on the `API Explorer` present in the `API Console`. Visit our docs to know more about Hasura [Authentication](https://docs.hasura.io/0.15/manual/users/index.html).
 
-You can also play around with the `Auth APIs` on the `API Explorer` present in the `API Console`. Visit our docs to know more about Hasura [Authentication](https://docs.hasura.io/0.15/manual/users/index.html).
+### Auth UI Kit
+
+The Auth UI Kit is a prebuilt UI that is running at `https://auth.<cluster-name>.hasura-app.io/ui`.
+
+```sh
+$ hasura microservice open auth
+```
+
+Running the above command will open the UI Kit in your browser. You can learn more about customizing and using the UI kit [here]("Link")
+
+### Using the Auth UI Kit in our project
+
+This quickstart has a simple example of using the Hasura Auth UI Kit.
 
 ## Migrating existing app
 

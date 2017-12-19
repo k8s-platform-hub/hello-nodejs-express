@@ -58,6 +58,14 @@ app.get('/', function(req, res) {
 //   });
 // });
 
+app.get('/logged_in_user', function(req, res) {
+  if (req['X-Hasura-User-Id'] || req['x-hasura-user-id']) {
+    res.send('Welcome, logged in user !')
+    return;
+  }
+  res.redirect('https://auth.hasura/ui')
+});
+
 app.listen(8080, function () {
   console.log('Example app listening on port 8080!');
 });

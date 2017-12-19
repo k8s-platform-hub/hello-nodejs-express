@@ -59,11 +59,14 @@ app.get('/', function(req, res) {
 // });
 
 app.get('/logged_in_user', function(req, res) {
-  if (req['X-Hasura-User-Id'] || req['x-hasura-user-id']) {
-    res.send('Welcome, logged in user !')
+  if (req['X-Hasura-User-Id']) {
+    res.json({
+      message: 'Welcome, logged in user !',
+      userId: req['X-Hasura-User-Id']    
+    })
     return;
   }
-  res.redirect('https://auth.hasura/ui')
+  res.redirect('https://auth.' + process.env.CLUSTER_NAME + '.hasura-app.io/ui');
 });
 
 app.listen(8080, function () {

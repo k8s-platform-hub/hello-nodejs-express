@@ -6,9 +6,19 @@
 # 2. modify the default value to the provider that you want
 
 email:
-  # default can take values 'smtp' or 'sparkPost
+  # default can take values 'smtp', 'sparkPost' or 'mandrill' or 'hasura'
   default: null
   providers:
+  hasura:
+      authToken:
+        secretKeyRef:
+          key: notify.hasura.token
+          name: hasura-secrets
+   mandrill:
+      apiKey:
+        secretKeyRef:
+          key: notify.mandrill.key
+          name: hasura-secrets
     smtp:
       hostname: ""
       password:
@@ -26,9 +36,14 @@ email:
           key: notify.sparkpost.key
           name: hasura-secrets
 sms:
-  # default can take values 'msg91' or 'twilio'
+  # default can take values 'msg91' or 'twilio' or 'hasura'
   default: null
   providers:
+  hasura:
+      authToken:
+        secretKeyRef:
+          key: notify.hasura.token
+          name: hasura-secrets
     msg91:
       from: ""
       authKey:

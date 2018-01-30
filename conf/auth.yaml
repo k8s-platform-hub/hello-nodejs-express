@@ -18,10 +18,10 @@ defaultProviders:
     enabled: "true"
     defaultRoles: []
   email:
-    enabled: "true"
+    enabled: "false"
     defaultRoles: []
   mobile:
-    enabled: "true"
+    enabled: "false"
     defaultRoles: []
   mobile-password:
     enabled: "false"
@@ -54,15 +54,15 @@ email:
   # email address of the sender for verification emails
   verifyEmailFrom: getstarteduser@hasura.io
   # Name of the sender for verification emails
-  verifEmailFromName: admin
+  verifEmailFromName: Admin
   # Subject for verification emails
-  verifyEmailSubject: MyAwesomeApp - Verify your account
+  verifyEmailSubject: Verify your account - {{ cluster.name }}
   # Template for verification emails. HTML can be used in the template. The
   # template is a Jinja template. Leave the "{{token}}" as it is. It will be
   # used by the auth service to inject the actual token when sending the email.
   verifyTemplate: |
     Hi, Please click on <br/>
-    https://auth.{{ cluster.name }}.hasura-app.io/v1/providers/email/verify-email?token={{ "{{token}}" }}
+    https://auth.{{ cluster.name }}.hasura-app.io/ui/verify-email?token={{ "{{token}}" }}
     to verify your email.
   # Email verification token expiry time in days
   verifyTokenExpires: "7"
@@ -70,15 +70,15 @@ email:
   # email address of the sender for forgot password emails
   forgotPassEmailFrom: getstarteduser@hasura.io
   # Name of the sender for forgot password emails
-  forgotPassEmailFromName: admin
+  forgotPassEmailFromName: Admin
   # Subject for forgot password emails
-  forgotPassEmailSubject: MyAwesomeApp - Reset password request
+  forgotPassEmailSubject: Reset password request - {{ cluster.name }}
   # Template for forgot password emails. HTML can be used in the template. The
   # template is a Jinja template. Leave the "{{token}}" as it is. It will be
   # used by the auth service to inject the actual token when sending the email.
   forgotPassTemplate: |
     Hi, <br/> Click on
-    https://auth.{{ cluster.name }}.hasura-app.io/v1/providers/email/reset-password?token={{ "{{token}}" }}
+    https://auth.{{ cluster.name }}.hasura-app.io/ui/reset-password?token={{ "{{token}}" }}
     to reset your password.
   # Forgot password reset token expiry time in days
   resetTokenExpires: "7"
@@ -89,7 +89,7 @@ mobile:
   # "{{otp}}" as it is. It will be used by the auth service to inject the
   # actual token.
   smsTemplate: |
-    Verify your acccount with MyAwesomeApp! Your OTP is {{ "{{otp}}" }}.
+    Verify your acccount with {{ cluster.name }}! Your OTP is {{ "{{otp}}" }}.
   # OTP expiry time in minutes
   otpExpiryTime: "15"
 
@@ -99,7 +99,7 @@ mobilePassword:
   # "{{otp}}" as it is. It will be used by the auth service to inject the
   # actual token.
   smsTemplate: |
-    Verify your acccount with MyAwesomeApp! Your OTP is {{ "{{otp}}" }}.
+    Verify your acccount with {{ cluster.name }}! Your OTP is {{ "{{otp}}" }}.
   # OTP expiry time in minutes
   otpExpiryTime: "15"
 
@@ -122,7 +122,7 @@ password:
 #  # your facebook app client secret
 #  clientSecret:
 #    secretKeyRef:
-#      key: auth.facebook.client.secret
+#      key: auth.facebook.client_secret
 #      name: hasura-secrets
 #
 # Configuration for github provider
@@ -132,7 +132,7 @@ password:
 #  # your github app client secret
 #  clientSecret:
 #    secretKeyRef:
-#      key: auth.github.client.secret
+#      key: auth.github.client_secret
 #      name: hasura-secrets
 #
 # Configuration for linkedin provider
@@ -142,7 +142,7 @@ password:
 #  # your linkedin app client secret
 #  clientSecret:
 #    secretKeyRef:
-#      key: auth.linkedin.client.secret
+#      key: auth.linkedin.client_secret
 #      name: hasura-secrets
 
 # Configuration for adding a custom provider
@@ -153,6 +153,8 @@ password:
 #     signup: "https://mycustomprovider.test42.hasura-app.io/signup"
 #     login: "https://mycustomprovider.test42.hasura-app.io/login"
 #     merge: "https://mycustomprovider.test42.hasura-app.io/merge"
+#     createUser: "https://mycustomprovider.test42.hasura-app.io/create-user"
+#     deleteUser: "https://mycustomprovider.test42.hasura-app.io/delete-user"
 #  defaultRoles: ["admin"]
 
 

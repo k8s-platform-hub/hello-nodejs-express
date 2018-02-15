@@ -40,7 +40,7 @@ router.route("/examples/data").get(function (req, res) {
         });
     }
     // res.json(JSON.parse(body))
-    res.render('data',JSON.parse(body));
+    res.render('data',body);
   })
 })
 

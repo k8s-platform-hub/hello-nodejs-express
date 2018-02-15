@@ -50,7 +50,7 @@ router.route("/examples/data").get(function (req, res) {
 router.route("/examples/auth").get(function (req, res) {
   const baseDomain = req.headers['X-Hasura-Base-Domain'];
   console.log('KKKKKKKKKKKKKKKKKKKKKKKKKKKK');
-  console.log(baseDomain);
+  console.log(req.headers);
   console.log('KKKKKKKKKKKKKKKKKKKKKKKKKKKK');
   res.render("auth_anonymous", {'base_domain': baseDomain});
 })

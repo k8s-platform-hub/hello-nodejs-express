@@ -3,6 +3,5 @@
     configmap: controller-conf
     namespace: hasura
   data: null
-  kubeContext: h34-butte55-stg
-  name: h34-butte55-stg
-  services: null
+  kubeContext: behavioral58
+  name: behavioral58

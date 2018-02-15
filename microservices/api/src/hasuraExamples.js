@@ -7,7 +7,7 @@ router.route("/").get(function (req, res) {
   res.send("Hello world from hello-nodejs-express")
 })
 
-router.route("/get_articles").get(function (req, res) {
+router.route("/examples/data").get(function (req, res) {
   console.log("Get articles");
   //Fetch all rows from table - articles
   var selectOptions = {

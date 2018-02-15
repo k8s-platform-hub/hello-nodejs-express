@@ -1,5 +1,2 @@
-description: A basic hasura project with a simple nodejs-express app running on it
-keywords: javascript, nodejs, express, getting-started, node
-media: {}
 name: hello-nodejs-express
 platformVersion: v0.15.3

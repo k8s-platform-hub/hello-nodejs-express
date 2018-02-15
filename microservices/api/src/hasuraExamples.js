@@ -43,12 +43,13 @@ router.route("/examples/data").get(function (req, res) {
         });
     }
     // res.json(JSON.parse(body))
-    res.render('data', {'data': JSON.stringify(body, 4, null)});
+    res.render('data', {'data': body});
   })
 })
 
 router.route("/examples/auth").get(function (req, res) {
-  res.render("auth_user");
+  const baseDomain = req.headers['X-Hasura-Base-Domain'];
+  res.render("auth_anonymous", {'base_domain': baseDomain});
 })
 
 module.exports = router;

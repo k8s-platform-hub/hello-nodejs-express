@@ -4,6 +4,7 @@ var request = require('request');
 var router = express.Router();
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
+var exphbs  = require('express-handlebars');
 require('request-debug')(request);
 
 var hasuraExamplesRouter = require('./hasuraExamples');
@@ -11,6 +12,19 @@ var hasuraExamplesRouter = require('./hasuraExamples');
 var server = require('http').Server(app);
 
 router.use(morgan('dev'));
+
+// app.use(express.static(__dirname + '/templates'))
+
+app.engine('handlebars', exphbs({
+	defaultLayout: 'main',
+	helpers: {
+	    toJSON : function(object) {
+	      return JSON.stringify(object, null, 4);
+	    }
+  	}
+	})
+);
+app.set('view engine', 'handlebars');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({

@@ -15,18 +15,18 @@
             <h1>Your files</h1>
             <hr/>
             <ul>
-                {{ #if filesLength == 0 }}
+                {{#if filesLength}}
                     You haven't uploaded any files yet.
-                {{ else }}
-                    {{ each files }}
+                {{else}}
+                    {{each files}}
                     <li>
                         <label>Id:</label> {{this.file_id}}<br/>
                         <label>Type:</label> {{this.content_type}}<br/>
                         <label>Size:</label> {{this.file_size}} bytes<br/>
                         <label>Link:</label> <a href="http://filestore.{{base_domain}}/v1/file/{{this.file_id}}" target="_blank">Download</a><br/>
                     </li>
-                    {{ /each }}
-                {{ /if }}
+                    {{/each}}
+                {{/if}}
             </ul>
             <hr/>
             <input id="file_input" type="file">

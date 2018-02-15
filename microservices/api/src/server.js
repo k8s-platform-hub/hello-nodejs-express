@@ -14,7 +14,7 @@ router.use(morgan('dev'));
 
 app.use(express.static(__dirname + '/templates'))
 
-app.set('views', __dirname + '/views')
+app.set('views', __dirname + '/templates')
 app.set('view engine', 'jade')
 
 app.use(bodyParser.json());

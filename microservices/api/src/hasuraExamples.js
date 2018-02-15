@@ -49,7 +49,14 @@ router.route("/examples/data").get(function (req, res) {
 
 router.route("/examples/auth").get(function (req, res) {
   const baseDomain = req.headers['x-hasura-base-domain'];
-  res.render("auth_anonymous", {'base_domain': baseDomain});
+  // check if logged in user or not
+  if (request.headers['x-hasura-allowed-roles'].includes("anonymous")) {
+    res.render("auth_anonymous", {'base_domain': baseDomain});
+  } else {
+    res.render("auth_user", {'base_domain': baseDomain, 'user_id': request.headers['x-hasura-user-id'], 
+      'roles': request.headers['x-hasura-allowed-roles']});
+  }
+
 })
 
 module.exports = router;

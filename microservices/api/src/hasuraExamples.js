@@ -70,8 +70,6 @@ router.route("/examples/filestore").get(function (req, res) {
   if (req.headers['x-hasura-allowed-roles'].includes("anonymous")) {
     res.render("filestore_anonymous", {'base_domain': baseDomain});
   } else {
-    console.log(req.headers);
-
       requestPayload = {
             "type": "select",
             "args": {
@@ -102,7 +100,9 @@ router.route("/examples/filestore").get(function (req, res) {
           'message': 'Select request failed'
         });
     } else {
+      console.log('ZZZZZZZZZZZZZZZZZZZZZZZZZZZ');
       console.log(body);
+      console.log('ZZZZZZZZZZZZZZZZZZZZZZZZZZZ');
       res.render("filestore_user", {'base_domain': baseDomain, 'files': body, 'filesLength': body.length});
     }
   })

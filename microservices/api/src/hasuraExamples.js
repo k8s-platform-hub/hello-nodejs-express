@@ -32,8 +32,8 @@ router.route("/examples/data").get(function (req, res) {
           'author_id',
           'rating',
           'title'
-
-        ]
+        ],
+        'limit': 10
       }
     })
   }

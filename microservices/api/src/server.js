@@ -15,7 +15,15 @@ router.use(morgan('dev'));
 
 // app.use(express.static(__dirname + '/templates'))
 
-app.engine('handlebars', exphbs({defaultLayout: 'main'}));
+app.engine('handlebars', exphbs({
+	defaultLayout: 'main',
+	helpers: {
+	    toJSON : function(object) {
+	      return JSON.stringify(object, null, 4);
+	    }
+  	}
+	})
+);
 app.set('view engine', 'handlebars');
 
 app.use(bodyParser.json());

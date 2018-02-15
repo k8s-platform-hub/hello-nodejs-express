@@ -101,8 +101,10 @@ router.route("/examples/filestore").get(function (req, res) {
           'error': error,
           'message': 'Select request failed'
         });
+    } else {
+      console.log(response);
+      res.render("filestore_user", {'base_domain': baseDomain, 'files': response, 'filesLength': response.length});
     }
-    res.render("filestore_user", {'base_domain': baseDomain, 'files': response, 'filesLength': response.length});
   })
 
 

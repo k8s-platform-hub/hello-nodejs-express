@@ -9,7 +9,7 @@ router.route("/").get(function (req, res) {
 })
 */
 router.route("/").get(function (req, res) {
-  res.render("index.html");
+  res.render("index");
 })
 
 router.route("/examples/data").get(function (req, res) {

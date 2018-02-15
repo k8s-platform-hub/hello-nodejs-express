@@ -104,7 +104,7 @@ router.route("/examples/filestore").get(function (req, res) {
       console.log(body);
       console.log(typeof(body));
       console.log('ZZZZZZZZZZZZZZZZZZZZZZZZZZZ');
-      res.render("filestore_user", {'base_domain': baseDomain, 'files': body.json(), 'filesLength': body.length});
+      res.render("filestore_user", {'base_domain': baseDomain, 'files': JSON.parse(body), 'filesLength': body.length});
     }
   })
 

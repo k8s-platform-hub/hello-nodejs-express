@@ -28,7 +28,11 @@ router.route("/examples/data").get(function (req, res) {
       'args': {
         'table': 'article',
         'columns': [
-          '*'
+          'id',
+          'author_id',
+          'rating',
+          'title'
+
         ]
       }
     })

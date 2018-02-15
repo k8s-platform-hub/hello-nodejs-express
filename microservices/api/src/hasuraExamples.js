@@ -43,7 +43,7 @@ router.route("/examples/data").get(function (req, res) {
         });
     }
     // res.json(JSON.parse(body))
-    res.render('data', {'data': body});
+    res.render('data', {'data': JSON.stringify(body, 4, null)});
   })
 })
 

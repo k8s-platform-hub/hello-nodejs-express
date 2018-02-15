@@ -39,8 +39,13 @@ router.route("/examples/data").get(function (req, res) {
           'message': 'Select request failed'
         });
     }
-    res.json(JSON.parse(body))
+    // res.json(JSON.parse(body))
+    res.render('data',JSON.parse(body));
   })
+})
+
+router.route("/examples/auth").get(function (req, res) {
+  res.render("auth_user");
 })
 
 module.exports = router;

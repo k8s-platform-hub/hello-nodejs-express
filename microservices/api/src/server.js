@@ -12,7 +12,7 @@ var server = require('http').Server(app);
 
 router.use(morgan('dev'));
 
-app.use(express.static(__dirname + '/templates'))
+// app.use(express.static(__dirname + '/templates'))
 
 app.set('views', __dirname + '/templates')
 app.set('view engine', 'jade')

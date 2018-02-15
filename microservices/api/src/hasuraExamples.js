@@ -46,9 +46,7 @@ router.route("/examples/data").get(function (req, res) {
           'message': 'Select request failed'
         });
     }
-    // res.json(JSON.parse(body))
-    console.log(JSON.stringify(body,null,'\t'));
-    res.render('data', {'data': body});
+    res.render('data', {'data': JSON.parse(body)});
   })
 })
 

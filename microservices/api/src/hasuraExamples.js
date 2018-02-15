@@ -53,6 +53,7 @@ router.route("/examples/auth").get(function (req, res) {
   if (request.headers['x-hasura-allowed-roles'].includes("anonymous")) {
     res.render("auth_anonymous", {'base_domain': baseDomain});
   } else {
+    console.log(req.headers);
     res.render("auth_user", {'base_domain': baseDomain, 'user_id': req.headers['x-hasura-user-id'], 
       'roles': req.headers['x-hasura-allowed-roles']});
   }

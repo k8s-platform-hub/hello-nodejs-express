@@ -3,9 +3,11 @@ var router = express.Router();
 var config = require('./config');
 var request = require('request');
 
+/*
 router.route("/").get(function (req, res) {
   res.send("Hello world from hello-nodejs-express")
 })
+*/
 
 router.route("/examples/data").get(function (req, res) {
   console.log("Get articles");

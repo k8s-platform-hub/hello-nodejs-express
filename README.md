@@ -1,3 +1,7 @@
+
+# hello-nodejs-express 
+![https://hasura.io/hub/projects/hasura/hello-nodejs-express](https://res.cloudinary.com/hasura/image/upload/v1519823410/button1.png)
+
 [**Express.js**](http://expressjs.com) is a Fast, unopinionated, minimalist web framework for node.
 
 ## What does this come with?
@@ -7,7 +11,7 @@
 * **Dockerfile** (automatically used by Hasura for deployment)
 
 ```
-FROM mhart/alpine-node:7.6.0
+FROM node:8
 
 WORKDIR /src
 
